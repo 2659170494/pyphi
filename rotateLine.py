@@ -53,4 +53,5 @@
 #     clock.tick(24000)
 #     angle = (time.time() - start) * 30 - 60
 #     print(clock.get_fps())
-
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"

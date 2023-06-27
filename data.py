@@ -10,7 +10,8 @@ from json import load
 import zipfile
 import pec2rpe
 import hashlib
-
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 def list2beat(_list):
     return _list[0] + _list[1] / _list[2]

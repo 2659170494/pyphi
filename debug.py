@@ -1,6 +1,7 @@
 import pygame
 import core as cor
-
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 pygame.init()
 

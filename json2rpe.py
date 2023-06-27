@@ -1,6 +1,7 @@
 import json
 import math
-
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 def convert(json_path, rpe_path):
     a = json_path

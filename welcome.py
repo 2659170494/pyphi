@@ -7,10 +7,12 @@ import pygame
 import sys
 import pygame.freetype  #文本
 import random
+import os
 import time
 import platform
 from logi import *
 import core as cor
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 def is_chinese(string):
     """
@@ -65,10 +67,10 @@ def choose():
     keep_going = True                                           #循环标志
     pygame.display.set_caption(cor.TITLE)            #设置窗口标题
     Log.info('Loading Choose UI.')
-    font_EN=pygame.freetype.Font(r"resources/Saira-Medium.ttf",18*1.3)#设置字体
-    font_CN=pygame.freetype.Font(r"resources/PingFang.ttf",18*1.3)#设置字体
+    font_EN=pygame.freetype.Font(now_path+r"resources/Saira-Medium.ttf",18*1.3)#设置字体
+    font_CN=pygame.freetype.Font(now_path+r"resources/PingFang.ttf",18*1.3)#设置字体
     #背景图片
-    image_surface = pygame.image.load('resources/texture/background.png').convert()      #加载背景
+    image_surface = pygame.image.load(now_path+'resources/texture/background.png').convert()      #加载背景
     image_surface.scroll(0,0)
     image_surface = pygame.transform.scale(image_surface, (window_x,window_y))
 
@@ -76,12 +78,12 @@ def choose():
     song_list = ['We Are Hardcore','Terrasphere','Aphasia']
     songlen = len(song_list)
     #加载歌曲背景
-    songpic = pygame.image.load('resources/texture/song.png').convert_alpha()
+    songpic = pygame.image.load(now_path+'resources/texture/song.png').convert_alpha()
     songpic = pygame.transform.scale(songpic,(854/4*1.5,183/4*1.5))          #调整大小 
 
-    songstart = pygame.image.load('resources/texture/start.png').convert_alpha()
+    songstart = pygame.image.load(now_path+'resources/texture/start.png').convert_alpha()
     songstart = pygame.transform.scale(songstart,(71/4*1.5,80/4*1.5))          #调整大小
-    pygame.mixer.music.load('resources/audio/music.mp3')#背景音乐
+    pygame.mixer.music.load(now_path+'resources/audio/music.mp3')#背景音乐
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play(-1)#循环播放
 
@@ -184,7 +186,7 @@ def loading():
     BLACK = (0,0,0)
     FPS = 60
 
-    pygame.mixer.music.load('resources/audio/mute.ogg')#静音
+    pygame.mixer.music.load(now_path+'resources/audio/mute.ogg')#静音
     pygame.mixer.music.play()
 
     screen = pygame.display.set_mode((window_x, window_y))                  #设置主屏窗口
@@ -192,17 +194,17 @@ def loading():
     keep_going = True                                                       #循环标志
     pygame.display.set_caption(cor.TITLE)                        #设置窗口标题
 
-    font_EN=pygame.freetype.Font(r"resources/Saira-Medium.ttf",16)#设置字体
-    font_2=pygame.freetype.Font(r"resources/Exo-Regular.pfb.ttf",15)#设置字体
-    font_pf=pygame.freetype.Font(r"resources/PingFang.ttf",15)#设置字体
-    font_pfs=pygame.freetype.Font(r"resources/PingFang.ttf",11)#设置字体
+    font_EN=pygame.freetype.Font(now_path+r"resources/Saira-Medium.ttf",16)#设置字体
+    font_2=pygame.freetype.Font(now_path+r"resources/Exo-Regular.pfb.ttf",15)#设置字体
+    font_pf=pygame.freetype.Font(now_path+r"resources/PingFang.ttf",15)#设置字体
+    font_pfs=pygame.freetype.Font(now_path+r"resources/PingFang.ttf",11)#设置字体
 
     #背景图片
-    image_surface = pygame.image.load('resources/texture/background.png').convert()      #加载背景
+    image_surface = pygame.image.load(now_path+'resources/texture/background.png').convert()      #加载背景
     image_surface.scroll(0,0)
     image_surface = pygame.transform.scale(image_surface, (window_x,window_y))
 
-    image_b = pygame.image.load('resources/texture/b2w.png').convert_alpha()
+    image_b = pygame.image.load(now_path+'resources/texture/b2w.png').convert_alpha()
     image_b = pygame.transform.scale(image_b, (window_x,window_y/4))
     #歌曲列表
     tips = [

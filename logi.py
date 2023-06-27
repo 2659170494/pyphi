@@ -1,9 +1,11 @@
 from logging import *
 from tkinter.messagebox import *
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 class Log:
     def __init__(self) -> None:
-        f=open('log.txt','w');f.truncate()#清空
-        basicConfig(filename='log.txt', level=INFO,format='[%(levelname)s][%(asctime)s]:%(message)s')
+        f=open(now_path+'log.txt','w');f.truncate()#清空
+        basicConfig(filename=now_path+'log.txt', level=INFO,format='[%(levelname)s][%(asctime)s]:%(message)s')
     def error(title:str,text:str,en_text:str) -> None:
         '''
         :error 错误

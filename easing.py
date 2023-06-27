@@ -3,7 +3,8 @@
 more detail about easing function at https://easings.net/en
 """
 import math
-
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 class Func:
     """

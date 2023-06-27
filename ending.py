@@ -8,11 +8,13 @@ import platform
 import core as cor
 from PIL import Image, ImageFilter, ImageEnhance
 import data
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 debug = True
 
 if debug:
-    data.load_zip("preset/WeAreHardcore.zip")
+    data.load_zip(now_path+"preset/WeAreHardcore.zip")
     # cor.IMAGE
 
 def is_chinese(string):
@@ -75,7 +77,7 @@ WHITE = (255,255,255)
 BLACK = (0,0,0)
 FPS = 60
 
-pygame.mixer.music.load('resources/audio/mute.ogg')#静音
+pygame.mixer.music.load(now_path+'resources/audio/mute.ogg')#静音
 pygame.mixer.music.set_volume(0.3)
 pygame.mixer.music.play()
 
@@ -84,33 +86,35 @@ screen.fill((0,0,0))                                                    #填充�
 keep_going = True                                                       #循环标志
 pygame.display.set_caption(cor.TITLE)                        #设置窗口标题
 
-font_EN=pygame.font.Font(r"resources/Saira-Medium.ttf",38) 
-font_EN_title=pygame.font.Font(r"resources/Saira-Medium.ttf",35)
-font_EN_subtitle=pygame.font.Font(r"resources/Saira-Medium.ttf",16)
-font_EN_s=pygame.font.Font(r"resources/Saira-Medium.ttf",24) 
-font_EN_ss=pygame.font.Font(r"resources/Saira-Medium.ttf",12) 
-font_EN_sss=pygame.font.Font(r"resources/Saira-Medium.ttf",8) 
-font_2=pygame.font.Font(r"resources/Exo-Regular.pfb.ttf",12) 
-font_pf=pygame.freetype.Font(r"resources/PingFang.ttf",15) 
-font_pfs=pygame.freetype.Font(r"resources/PingFang.ttf",11) 
-font_Pfs=pygame.font.Font(r"resources/PingFang.ttf",24) 
+font_EN=pygame.font.Font(now_path+r"resources/Saira-Medium.ttf",38) 
+font_EN_title=pygame.font.Font(now_path+r"resources/Saira-Medium.ttf",35)
+font_EN_subtitle=pygame.font.Font(now_path+r"resources/Saira-Medium.ttf",16)
+font_EN_s=pygame.font.Font(now_path+r"resources/Saira-Medium.ttf",24) 
+font_EN_ss=pygame.font.Font(now_path+r"resources/Saira-Medium.ttf",12) 
+font_EN_sss=pygame.font.Font(now_path+r"resources/Saira-Medium.ttf",8) 
+font_2=pygame.font.Font(now_path+r"resources/Exo-Regular.pfb.ttf",12) 
+font_pf=pygame.freetype.Font(now_path+r"resources/PingFang.ttf",15) 
+font_pfs=pygame.freetype.Font(now_path+r"resources/PingFang.ttf",11) 
+font_Pfs=pygame.font.Font(now_path+r"resources/PingFang.ttf",24) 
 
 #背景图片
 image_surface = pygame.image.load('./cache/bg_b_b.jpg').convert()      #加载背景
 image_surface.scroll(0,0)
 image_surface = pygame.transform.scale(image_surface, (window_x,window_y))
 
-image_replay = pygame.image.load('resources/texture/replay.png').convert_alpha()# 重开按钮
+image_replay = pygame.image.load(now_path+'resources/texture/replay.png').convert_alpha()# 重开按钮
 image_replay = pygame.transform.scale(image_replay, (203/3,130/3))
 
-# image_user = cor.cutimage('resources/texture/Introduction.png',15,"cache/Introduction_.png",(105,61))#切割为平行四边形
-image_useroffset = cor.cutimage_rect('resources/texture/Introduction.png',(105,61),"cache/Introduction_.png")
-image_user = pygame.image.load('cache/Introduction_.png').convert_alpha()# 用户头像
-# image_user = pygame.transform.scale(image_user, (105,61))
+# image_user = cor.cutimage(now_path+'resources/texture/Introduction.png',15,"cache/Introduction_.png",(105,61))#切割为平行四边形
+image_useroffset = cor.cutimage_rect(now_path+'resources/texture/Introduction.png',(105,61),now_path+"cache/Introduction_.png")
+print(image_useroffset)
+#image_user = pygame.image.load(now_path+'cache/Introduction_.png').convert_alpha()# 用户头像
+image_user = pygame.image.load(now_path+'resources/texture/Introduction.png').convert_alpha()# 用户头像
+image_user = pygame.transform.scale(image_user, (105,61))
 
 #[size,0+pas],[w,0+pas],[w-size,h-pas],[0,h-pas]
 # pygame.draw.polygon(screen, (0, 0, 0), [(100, 100), (150, 50), (200, 100), (250, 50)], 0)
-image_bar = pygame.image.load('resources/texture/EndingInfoBar.png').convert_alpha()# 右上角信息背景平行四边形
+image_bar = pygame.image.load(now_path+'resources/texture/EndingInfoBar.png').convert_alpha()# 右上角信息背景平行四边形
 # image_bar = pygame.transform.scale(image_user, (image_user.get_width()/2,image_user.get_height()/2))
 
 # print(cor.IMAGE)
@@ -122,19 +126,19 @@ image_song_ = pygame.transform.scale(image_song, (417 ,313))
 # image_songoffset = cor.cutimage(image_song,cor.IMAGE,84,"cache/Song_.png",(417,313))
 # image_song_ = pygame.image.load("cache/Song_.png").convert_alpha()# 左边曲绘
 
-image_rect1 = pygame.image.load('resources/texture/EndingRect1.png').convert_alpha()# 右边上方大bar
-image_rect2 = pygame.image.load('resources/texture/EndingRect2.png').convert_alpha()# 右边上方大bar
+image_rect1 = pygame.image.load(now_path+'resources/texture/EndingRect1.png').convert_alpha()# 右边上方大bar
+image_rect2 = pygame.image.load(now_path+'resources/texture/EndingRect2.png').convert_alpha()# 右边上方大bar
 
 # print(grade)
-image_level = pygame.image.load('resources/texture/level/{}.png'.format(grade)).convert_alpha()# 等级图
+image_level = pygame.image.load(now_path+'resources/texture/level/{}.png'.format(grade)).convert_alpha()# 等级图
 
-image_scb = pygame.image.load('resources/texture/EndSongCoverBlack.png').convert_alpha()# 歌曲遮盖黑色渐变图
+image_scb = pygame.image.load(now_path+'resources/texture/EndSongCoverBlack.png').convert_alpha()# 歌曲遮盖黑色渐变图
 
-image_continue = pygame.image.load('resources/texture/continue.png').convert_alpha()# 继续按钮
+image_continue = pygame.image.load(now_path+'resources/texture/continue.png').convert_alpha()# 继续按钮
 image_continue = pygame.transform.scale(image_continue, (203/3,130/3))
 
 
-pygame.mixer.music.load("resources"+"/audio/LevelOver" + str(playLevel) + ".ogg")#resources/audio/LevelOver0.ogg
+pygame.mixer.music.load(now_path+"resources"+"/audio/LevelOver" + str(playLevel) + ".ogg")#resources/audio/LevelOver0.ogg
 pygame.mixer.music.set_volume(0.5)
 # print(playLevel)
 pygame.mixer.music.play(-1)

@@ -1,6 +1,8 @@
 import json
 import math
 import sys
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 
 def to_rpe_note_x(n):

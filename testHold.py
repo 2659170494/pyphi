@@ -6,15 +6,16 @@ import data
 import element
 import math
 import debug
-
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 pygame.init()
 
-JSON_PATH = "resources/61895176/61895176.json"
+JSON_PATH = now_path+"resources/61895176/61895176.json"
 # JSON_PATH = "resources/56769032/56769032.json"
 # JSON_PATH = "resources/81907165/81907165.json"
 pygame.mixer.init()
-pygame.mixer.music.load("resources/61895176/61895176.mp3")
+pygame.mixer.music.load(now_path+"resources/61895176/61895176.mp3")
 
 data.load_rpe(JSON_PATH)
 evalPainter = element.EvalPainter()

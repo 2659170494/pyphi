@@ -5,6 +5,8 @@ import time
 
 import data
 import element
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 pygame.init()
 
@@ -13,7 +15,7 @@ screen = pygame.display.set_mode((cor.WIDTH, cor.HEIGHT))
 beat = 0
 start = time.time()
 clock = pygame.time.Clock()
-data.load_beatmap("exampleBeatmap.xml")
+data.load_beatmap(now_path+"exampleBeatmap.xml")
 
 while 1:
     for event in pygame.event.get():

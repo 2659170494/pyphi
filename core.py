@@ -7,6 +7,7 @@ import os
 import cv2
 import time
 import matplotlib.pyplot as plt
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 
 if not os.path.exists("./cache"):
@@ -131,10 +132,10 @@ class Eval:
 
     def __init__(self):
         self.goods = [
-            pygame.image.load(f"resources/texture/img-{i}_good.png") for i in range(1, 31)
+            pygame.image.load(now_path+f"resources/texture/img-{i}_good.png") for i in range(1, 31)
         ]
         self.perfects = [
-            pygame.image.load(f"resources/texture/img-{i}_perfect.png") for i in range(1, 31)
+            pygame.image.load(now_path+f"resources/texture/img-{i}_perfect.png") for i in range(1, 31)
         ]
 
         for index in range(len(self.goods)):
@@ -170,14 +171,14 @@ class Texture:
 
     def __init__(self):
         self.id2texture = {
-            Texture.Tap: pygame.image.load("resources/texture/Tap2.png"),#resources/texture/Tap2.png
-            Texture.TapHL: pygame.image.load("resources/texture/Tap2HL.png"),
-            Texture.Drag: pygame.image.load("resources/texture/Drag2.png"),
-            Texture.DragHL: pygame.image.load("resources/texture/DragHL.png"),
-            Texture.Flick: pygame.image.load("resources/texture/Flick2.png"),
-            Texture.FlickHL: pygame.image.load("resources/texture/Flick2HL.png"),
-            Texture.Hold: pygame.image.load("resources/texture/Hold2.png"),
-            Texture.Line: pygame.image.load("resources/texture/line.png"),
+            Texture.Tap: pygame.image.load(now_path+"resources/texture/Tap2.png"),#resources/texture/Tap2.png
+            Texture.TapHL: pygame.image.load(now_path+"resources/texture/Tap2HL.png"),
+            Texture.Drag: pygame.image.load(now_path+"resources/texture/Drag2.png"),
+            Texture.DragHL: pygame.image.load(now_path+"resources/texture/DragHL.png"),
+            Texture.Flick: pygame.image.load(now_path+"resources/texture/Flick2.png"),
+            Texture.FlickHL: pygame.image.load(now_path+"resources/texture/Flick2HL.png"),
+            Texture.Hold: pygame.image.load(now_path+"resources/texture/Hold2.png"),
+            Texture.Line: pygame.image.load(now_path+"resources/texture/line.png"),
             Texture.EvalImg: Eval()
         }
 
@@ -223,9 +224,9 @@ TITLE = 'Phigros for Python Max'
 
 pygame.mixer.init()
 
-TAP_SOUND = pygame.mixer.Sound("resources/audio/tap.wav")
-DRAG_SOUND = pygame.mixer.Sound("resources/audio/drag.wav")
-FLICK_SOUND = pygame.mixer.Sound("resources/audio/flick.wav")
+TAP_SOUND = pygame.mixer.Sound(now_path+"resources/audio/tap.wav")
+DRAG_SOUND = pygame.mixer.Sound(now_path+"resources/audio/drag.wav")
+FLICK_SOUND = pygame.mixer.Sound(now_path+"resources/audio/flick.wav")
 
 
 NOTE_X_SCALE = 220 / 300 * WIDTH / 1000

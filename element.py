@@ -6,7 +6,8 @@ import alterobj
 import core as cor
 import threading
 import debug
-
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
 class JudgeLine:
     # 欺骗指数。用于暂时解决note出现在屏幕外就中断整个判定线的绘制的问题

@@ -15,10 +15,12 @@ import pygame.freetype
 import welcome as w
 import random
 import shutil  
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 shutil.rmtree('cache')  #清空缓存
 pygame.init()
 gamename = w.choose()#选择界面
-data.load_zip("preset/{}.zip".format(gamename))
+data.load_zip(now_path+"preset/{}.zip".format(gamename))
 w.loading()# 加载界面
 # Log.info('Loading UI.')
 
@@ -40,14 +42,14 @@ background = pygame.transform.smoothscale(pygame.image.load("./cache/bg_b_b.jpg"
 # Log.info('Image Init.')
 try:
     # 初始化字体
-    f1      = pygame.freetype.Font(r"resources/Exo-Regular.pfb.ttf", 12)
-    f2      = pygame.freetype.Font(r"resources/Saira-Medium.ttf", 15)
-    font1   = pygame.font.Font(r"resources/Exo-Regular.pfb.ttf", 14)
-    font2   = pygame.font.Font(r"resources/Saira-Medium.ttf", 30)
-    font40  = pygame.font.Font("resources/cmdysj.ttf", 40)
-    font30  = pygame.font.Font("resources/cmdysj.ttf", 30)
-    font25  = pygame.font.Font("resources/cmdysj.ttf", 25)
-    font20  = pygame.font.Font("resources/cmdysj.ttf", 20)
+    f1      = pygame.freetype.Font(now_path+r"resources/Exo-Regular.pfb.ttf", 12)
+    f2      = pygame.freetype.Font(now_path+r"resources/Saira-Medium.ttf", 15)
+    font1   = pygame.font.Font(now_path+r"resources/Exo-Regular.pfb.ttf", 14)
+    font2   = pygame.font.Font(now_path+r"resources/Saira-Medium.ttf", 30)
+    font40  = pygame.font.Font(now_path+"resources/cmdysj.ttf", 40)
+    font30  = pygame.font.Font(now_path+"resources/cmdysj.ttf", 30)
+    font25  = pygame.font.Font(now_path+"resources/cmdysj.ttf", 25)
+    font20  = pygame.font.Font(now_path+"resources/cmdysj.ttf", 20)
     # Log.info('Loading fonts.')
 except FileNotFoundError:
     pass
@@ -64,8 +66,8 @@ clock = pygame.time.Clock()
 
 # ---------- PYGAME INIT ----------
 try:
-    songsNameBar = pygame.image.load("resources/texture/SongsNameBar.png").convert_alpha()  # 歌曲名条
-    pause = pygame.image.load("resources/texture/Pause.png").convert_alpha()  # 暂停
+    songsNameBar = pygame.image.load(now_path+"resources/texture/SongsNameBar.png").convert_alpha()  # 歌曲名条
+    pause = pygame.image.load(now_path+"resources/texture/Pause.png").convert_alpha()  # 暂停
 except FileNotFoundError:
     pass
     # Log.error('文件缺失', '您运行的程序未找到文件，请检查程序是否完整。','The program you are running cannot find the file.')

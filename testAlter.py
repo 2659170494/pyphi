@@ -6,8 +6,10 @@ import alterobj
 # Test on AlternativeObject
 import cor
 import data
+import os
+now_path = os.path.dirname(os.path.realpath(__file__))+"/"
 
-data.load_rpe("resources/56769032/56769032.json")
+data.load_rpe(now_path+"resources/56769032/56769032.json")
 
 obj = cor.judge_line_list[0].note_y_object
 
