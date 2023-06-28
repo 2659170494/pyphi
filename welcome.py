@@ -75,7 +75,7 @@ def choose():
     image_surface = pygame.transform.scale(image_surface, (window_x,window_y))
 
     #歌曲列表
-    song_list = ['We Are Hardcore','Terrasphere','Aphasia']
+    song_list = ['We Are Hardcore','Terrasphere','Aphasia','INTERNET YAMERO']
     songlen = len(song_list)
     #加载歌曲背景
     songpic = pygame.image.load(now_path+'resources/texture/song.png').convert_alpha()
@@ -143,6 +143,11 @@ def choose():
                         #print('用户选择:',song_list[2])
                         Log.info('User Choose [2]')
                         return song_list[2].replace(" ","")
+                    elif event.pos[0]>=button_x                    and event.pos[0]<=button_x+button_width           and event.pos[1]>=button_y+(xpp*3) and event.pos[1]<=button_y+(xpp*3)+button_height:
+                        #判断鼠标点击位置是否在选歌按钮3上
+                        #print('用户选择:',song_list[2])
+                        Log.info('User Choose [3]')
+                        return song_list[3].replace(" ","")
         screen.blit(image_surface, (0, 0))
         
         u = 0
